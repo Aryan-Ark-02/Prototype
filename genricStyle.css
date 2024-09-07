@@ -1,0 +1,159 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Header and Navbar */
+header {
+    background-color: #003366; /* Dark Blue */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: white;
+}
+
+.navbar-logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.navbar-tabs {
+    list-style: none;
+    display: flex;
+}
+
+.navbar-tabs li {
+    margin: 0 15px;
+}
+
+.navbar-tabs a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    padding: 5px;
+    margin-right: 15px;
+    border: none;
+    border-radius: 5px;
+}
+
+.login-btn, .logout-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #f4b400; /* Golden */
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.login-btn:hover, .logout-btn:hover {
+    background-color: #e0a800;
+}
+
+/* Main Layout */
+main {
+    display: flex;
+    height: calc(100vh - 60px); /* Adjust height based on header size */
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #e0f7fa; /* Light Blue */
+    padding: 20px;
+    border-right: 1px solid #ddd;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #003366; /* Dark Blue */
+    font-weight: bold;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+.image-space img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.text-area {
+    margin-top: 20px;
+}
+
+.text-area h1 {
+    color: #003366; /* Dark Blue */
+    font-size: 2em;
+}
+
+.text-area p {
+    color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-tabs {
+        display: none;
+    }
+
+    .navbar-right {
+        flex-direction: column;
+    }
+
+    .search-bar {
+        margin: 0 0 10px 0;
+    }
+
+    .sidebar {
+        width: 100%;
+        position: absolute;
+        top: 60px; /* Adjust based on header height */
+        left: 0;
+        z-index: 1000;
+    }
+
+
+    main {
+        flex-direction: column;
+    }
+
+    .image-space, .text-area {
+        margin: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .text-area h1 {
+        font-size: 1.5em;
+    }
+}

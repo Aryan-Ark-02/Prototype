@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herbal Ayurveda</title>
+    <link rel="stylesheet" href="i.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-logo">Herbal Ayurveda</div>
+            <ul class="navbar-tabs">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="navbar-right">
+                <input type="text" class="search-bar" placeholder="Search...">
+                <button class="login-btn">Login</button>
+                <button class="logout-btn">Logout</button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <aside class="sidebar">
+            <ul>
+                <li><a href="#">Herbs</a></li>
+                <li><a href="#">Ayurvedic Medicine</a></li>
+                <li><a href="#">Natural Remedies</a></li>
+                <li><a href="#">Organic Products</a></li>
+            </ul>
+        </aside>
+        <section class="content">
+            <div class="image-space">
+                <canvas id="myCanvas"></canvas>
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/controls/OrbitControls.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/loaders/GLTFLoader.js"></script>
+            
+                <script>
+                    // Set up scene, camera, and renderer
+                    const scene = new THREE.Scene();
+                    const canvas = document.getElementById('myCanvas');
+                    const renderer = new THREE.WebGLRenderer({ canvas: canvas });
+                    scene.background = new THREE.Color(0xFFFFFF); // Set background color to white
+
+            
+                    // Set canvas size to 30% of viewport width and 40% of viewport height
+                    const width = window.innerWidth * 0.15;
+                    const height = window.innerHeight * 0.4;
+                    renderer.setSize(width, height);
+            
+                    // Create a perspective camera with an aspect ratio matching the canvas
+                    const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+                    camera.position.z = 3;
+            
+                    // Add OrbitControls for zooming, rotating, and panning
+                    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+                    controls.enableDamping = true; // Smooth camera movement
+                    controls.dampingFactor = 0.05;
+                    controls.enableZoom = true; // Enable zoom
+                    controls.enablePan = false; // Disable panning, only allow rotating and zooming
+                    controls.maxPolarAngle = Math.PI; // Allow 360-degree vertical rotation
+                    controls.minPolarAngle = 0; // Disable flipping the object upside down
+            
+                    // Add lighting to the scene
+                    const ambientLight = new THREE.AmbientLight(0x404040); // Soft white light
+                    scene.add(ambientLight);
+            
+                    const directionalLight = new THREE.DirectionalLight(0xffffff, 1); // Directional light
+                    directionalLight.position.set(5, 5, 5).normalize();
+                    scene.add(directionalLight);
+            
+                    // Load a .glb model using GLTFLoader
+                    const loader = new THREE.GLTFLoader();
+                    loader.load('model.glb', function(gltf) {
+                        const model = gltf.scene;
+                        model.scale.set(2, 2, 2); // Adjust the model scale if needed
+                        model.position.set(0, -1.5, 0); // Adjust the model position if needed
+                        scene.add(model);
+                    }, undefined, function(error) {
+                        console.error('An error occurred while loading the model:', error);
+                    });
+            
+                    // Handle window resize for responsive canvas
+                    window.addEventListener('resize', () => {
+                        const newWidth = window.innerWidth * 0.5;
+                        const newHeight = window.innerHeight * 0.5;
+            
+                        renderer.setSize(newWidth, newHeight);
+                        camera.aspect = newWidth / newHeight;
+                        camera.updateProjectionMatrix();
+                    });
+            
+                    // Create a render loop to animate the scene
+                    function animate() {
+                        requestAnimationFrame(animate);
+            
+                        controls.update(); // Update the controls with each frame
+            
+                        // Render the scene from the camera's perspective
+                        renderer.render(scene, camera);
+                    }
+            
+                    // Start the animation
+                    animate();
+                </script>
+            </div>
+            <div class="text-area">
+                <h1>Welcome to Herbal Ayurveda</h1>
+                <p>**Ayurveda: A Holistic Approach to Health**
+
+                    Ayurveda, an ancient system of medicine originating from India, emphasizes a holistic approach to
+                    health and well-being. Its core philosophy revolves around the balance of three doshas—Vata, Pitta,
+                    and Kapha—which are believed to govern the body's physiological and psychological functions. By
+                    understanding one's unique dosha composition, Ayurveda offers personalized treatments and lifestyle
+                    recommendations to maintain or restore balance, thereby preventing disease and promoting overall
+                    health.
+
+                    In Ayurveda, diet, lifestyle, and natural therapies play pivotal roles. Each individual's diet is
+                    tailored to their dosha, with an emphasis on consuming foods that support harmony and balance.
+                    Ayurvedic practices also include herbal remedies, detoxification techniques, and yoga, all of which
+                    are designed to align the mind, body, and spirit.
+
+                    Modern science is increasingly recognizing the value of Ayurvedic principles, particularly in
+                    preventive health and chronic disease management. While Ayurveda’s holistic approach contrasts with
+                    conventional medicine's often symptom-focused treatments, it provides a complementary perspective
+                    that can enhance contemporary healthcare practices by promoting long-term wellness and self-care.
+                </p>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
