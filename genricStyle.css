@@ -121,7 +121,7 @@ main {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .navbar-tabs {
         display: none;
     }
@@ -137,7 +137,7 @@ main {
     .sidebar {
         width: 100%;
         position: absolute;
-        top: 60px; /* Adjust based on header height */
+        top: 60px; 
         left: 0;
         z-index: 1000;
     }
@@ -156,4 +156,4 @@ main {
     .text-area h1 {
         font-size: 1.5em;
     }
-}
+}  */

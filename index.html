@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Herbal</title>
-    <link rel="stylesheet" href='style.css'>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <header>
         <div class="container">
-            <h1>My Potfolio Website</h1>
+            <h1>Team Radiant</h1>
             <nav>
                 <ul>
                     <li><a href="#">Home</a></li>
@@ -21,22 +21,52 @@
                 </ul>
             </nav>
             <div class="auth-links">
-                <a href="/Login" id="loginBtn">Login</a>
-                <a href="/Signup" id="signupBtn">Signup</a>
+                <a href="/Login.html" id="loginBtn">Login</a>
+                <a href="/Signup.html" id="signupBtn">Signup</a>
             </div>
             <br>
         </div>
+        <div class="search-container">
+                <div id="sidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()">&times;</a>
+        <a href="#">Home</a>
+        <a href="#">Quiz & Contest</a>
+        <a href="#">Virtual Tour</a>
+        <a href="#">Community Forum</a>
+        <a href="#">Image Search</a>
+        <a href="#">My Account</a>
+    </div>
+    <button class="openbtn" onclick="toggleSidebar()">☰ Explore</button>
+            <form action="/search" method="GET">
+                <input type="text" placeholder="Search for herbs..." name="search" class="search-input">
+                <button type="submit" class="search-button">Search</button>
+            </form>
+        </div>
     </header>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()">&times;</a>
+        <a href="#">Home</a>
+        <a href="#">Quiz & Contest</a>
+        <a href="#">Virtual Tour</a>
+        <a href="#">Community Forum</a>
+        <a href="#">Image Search</a>
+        <a href="#">My Account</a>
+    </div>
+
+    <!-- Button to open the sidebar -->
+    <!-- <button class="openbtn" onclick="toggleSidebar()">☰ Explore More</button> -->
 
     <div class="hero">
         <div class="container">
-            <h1>Welcome to my world of projects ✨</h1>
-            <p>Showcasing some of my cute little projects 🤩💖</p>
+            <h1>Virtual Herbal Garden</h1>
+            <p>A Educational Platform That Provides Holistic Education About AYUSH Medicinal Plants To All</p>
         </div>
     </div>
 
     <div class="content container">
-        <h2>Our Services</h2>
+        <h2>Virtual Gallary</h2>
         <a href="genric.html">
             <div class="box">
                 <img src="Aloe Vera.jpg" alt="Service 1">
@@ -68,6 +98,21 @@
     <footer class="footer">
         <p>&copy; edit me</p>
     </footer>
+
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById("sidebar");
+            var openBtn = document.querySelector(".openbtn");
+
+            if (sidebar.style.width === "250px") {
+                sidebar.style.width = "0";
+                openBtn.style.display = "block"; // Show the button when sidebar is closed
+            } else {
+                sidebar.style.width = "250px";
+                openBtn.style.display = "none"; // Hide the button when sidebar is open
+            }
+        }
+    </script>
 
 </body>
 

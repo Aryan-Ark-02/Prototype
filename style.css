@@ -1,10 +1,11 @@
 /* Resetting some default styles */
 body, h1, h2, h3, p, ul, li, form {
     margin: 0;
+    margin-bottom: 5px;
     padding: 0;
     box-sizing: border-box;
 }
-h1{
+h1 {
     padding-top: 5px;
 }
 body {
@@ -12,8 +13,6 @@ body {
     line-height: 1.6;
     color: #333;
     background: linear-gradient(135deg, #283c86, #45a247);
-
-
 }
 .container {
     width: 80%;
@@ -46,7 +45,7 @@ nav ul li a {
     text-decoration: none;
     font-weight: bold;
 }
-a{
+a {
     text-decoration: none;
     color: black;
 }
@@ -88,6 +87,7 @@ a{
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     margin: 15px;
+    margin-left: 135px;
     text-align: center;
 }
 .content .box img {
@@ -106,39 +106,59 @@ a{
 .footer p {
     margin: 0;
 }
-/* Form styles */
-.auth-form {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    margin: 20px auto;
-    width: 300px;
+
+/* Sidebar styles */
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.5);
 }
-.auth-form h2 {
-    margin-bottom: 20px;
-    font-size: 1.5em;
-    text-align: center;
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #f1f1f1;
+    display: block;
+    transition: 0.3s;
 }
-.auth-form input[type="text"],
-.auth-form input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+
+.sidebar a:hover {
+    color: #ff6347;
 }
-.auth-form input[type="submit"] {
-    background: #333;
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    font-size: 36px;
+    margin-left: 50px;
     color: #fff;
-    border: none;
-    padding: 10px;
-    border-radius: 4px;
+}
+
+.openbtn {
+    font-size: 20px;
     cursor: pointer;
+    background-color: #333;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
 }
-.auth-form input[type="submit"]:hover {
-    background: #555;
+
+.openbtn:hover {
+    background-color: #555;
 }
+
+/* Responsive changes */
 @media (max-width: 768px) {
     .hero h1 {
         font-size: 2.5em;
@@ -149,4 +169,42 @@ a{
     .auth-form {
         width: 90%;
     }
+    .sidebar a {
+        font-size: 18px;
+    }
+}
+
+/* ###### */
+
+/* Search Container */
+.search-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px; /* Moves the search bar 20px from the right */
+    margin-top: 10px;
+}
+.search-input {
+    padding: 10px;
+    width: 60vw;
+    border: 2px solid #333;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-right: 10px; /* Adds space between the input and button */
+    margin-bottom: 5px;
+    margin-left: 5px;
+    outline: none;
+}
+.search-button {
+    padding: 10px 80px;
+    margin-left: 5px;
+    background-color: #45a247;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.search-button:hover {
+    background-color: #283c86;
 }
