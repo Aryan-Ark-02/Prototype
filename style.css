@@ -4,7 +4,7 @@ body, h1, h2, h3, p, ul, li, form {
     padding: 0;
     box-sizing: border-box;
 }
-h1 {
+h1{
     padding-top: 5px;
 }
 body {
@@ -12,6 +12,8 @@ body {
     line-height: 1.6;
     color: #333;
     background: linear-gradient(135deg, #283c86, #45a247);
+
+
 }
 .container {
     width: 80%;
@@ -44,7 +46,7 @@ nav ul li a {
     text-decoration: none;
     font-weight: bold;
 }
-a {
+a{
     text-decoration: none;
     color: black;
 }
@@ -104,59 +106,39 @@ a {
 .footer p {
     margin: 0;
 }
-
-/* Sidebar styles */
-.sidebar {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.9);
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+/* Form styles */
+.auth-form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin: 20px auto;
+    width: 300px;
 }
-
-.sidebar a {
-    padding: 10px 15px;
-    text-decoration: none;
-    font-size: 20px;
-    color: #f1f1f1;
-    display: block;
-    transition: 0.3s;
+.auth-form h2 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    text-align: center;
 }
-
-.sidebar a:hover {
-    color: #ff6347;
-}
-
-.sidebar .closebtn {
-    position: absolute;
-    top: 0;
-    right: 20px;
-    font-size: 36px;
-    margin-left: 50px;
-    color: #fff;
-}
-
-.openbtn {
-    font-size: 20px;
-    cursor: pointer;
-    background-color: #333;
-    color: white;
-    padding: 10px 15px;
-    border: none;
+.auth-form input[type="text"],
+.auth-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
     border-radius: 4px;
 }
-
-.openbtn:hover {
-    background-color: #555;
+.auth-form input[type="submit"] {
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
 }
-
-/* Responsive changes */
+.auth-form input[type="submit"]:hover {
+    background: #555;
+}
 @media (max-width: 768px) {
     .hero h1 {
         font-size: 2.5em;
@@ -166,71 +148,5 @@ a {
     }
     .auth-form {
         width: 90%;
-    }
-    .sidebar a {
-        font-size: 18px;
-    }
-}
-
-/* ###### */
-
-/* Search Container */
-.search-container {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-/* Search Input */
-.search-input {
-    padding: 10px;
-    width: 200px;
-    border: 2px solid #333;
-    border-radius: 5px;
-    font-size: 16px;
-    outline: none;
-}
-
-/* Dropdown Filter */
-.dropdown-filter {
-    padding: 10px;
-    border: 2px solid #333;
-    border-radius: 5px;
-    font-size: 16px;
-    outline: none;
-    background-color: #fff;
-}
-
-/* Search Button */
-.search-button {
-    padding: 10px 20px;
-    background-color: #45a247;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.search-button:hover {
-    background-color: #283c86;
-}
-
-/* Responsive Search Bar */
-@media (max-width: 768px) {
-    .search-container {
-        flex-direction: column;
-        gap: 15px;
-    }
-    .search-input, .dropdown-filter, .search-button {
-        width: 100%;
-        font-size: 14px;
     }
 }
